@@ -15,6 +15,10 @@
 		1AA3C8B6263AB26C0041430A /* QuoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3C8B5263AB26C0041430A /* QuoteDetailsViewController.swift */; };
 		1AA3C8BA263AB2980041430A /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3C8B9263AB2980041430A /* Quote.swift */; };
 		1AC78CBF263C6686004D4F8F /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC78CBE263C6686004D4F8F /* Market.swift */; };
+		7637E80629C35D21008B9BF6 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637E80529C35D21008B9BF6 /* QuoteTableViewCell.swift */; };
+		7637E80929C36A0C008B9BF6 /* String+notNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637E80829C36A0C008B9BF6 /* String+notNil.swift */; };
+		7637E80B29C3A49C008B9BF6 /* UITableView+EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637E80A29C3A49C008B9BF6 /* UITableView+EmptyState.swift */; };
+		7637E80D29C3B338008B9BF6 /* VariationColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637E80C29C3B338008B9BF6 /* VariationColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		1AA3C8B5263AB26C0041430A /* QuoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewController.swift; sourceTree = "<group>"; };
 		1AA3C8B9263AB2980041430A /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		1AC78CBE263C6686004D4F8F /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		7637E80529C35D21008B9BF6 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		7637E80829C36A0C008B9BF6 /* String+notNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+notNil.swift"; sourceTree = "<group>"; };
+		7637E80A29C3A49C008B9BF6 /* UITableView+EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EmptyState.swift"; sourceTree = "<group>"; };
+		7637E80C29C3B338008B9BF6 /* VariationColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		1AA3C895263AA2030041430A /* Technical-test */ = {
 			isa = PBXGroup;
 			children = (
+				7637E80729C369F8008B9BF6 /* Extensions */,
 				1AA3C8B0263AA8220041430A /* Manager */,
 				1AA3C8AC263AA2D90041430A /* Model */,
 				1AA3C8AB263AA2D10041430A /* View */,
@@ -74,6 +83,7 @@
 		1AA3C8AB263AA2D10041430A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7637E80429C35CF4008B9BF6 /* Cell */,
 				1AA3C89A263AA2030041430A /* QuotesListViewController.swift */,
 				1AA3C8B5263AB26C0041430A /* QuoteDetailsViewController.swift */,
 			);
@@ -85,6 +95,7 @@
 			children = (
 				1AA3C8B9263AB2980041430A /* Quote.swift */,
 				1AC78CBE263C6686004D4F8F /* Market.swift */,
+				7637E80C29C3B338008B9BF6 /* VariationColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +106,23 @@
 				1AA3C8B1263AA8360041430A /* DataManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		7637E80429C35CF4008B9BF6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7637E80529C35D21008B9BF6 /* QuoteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7637E80729C369F8008B9BF6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7637E80829C36A0C008B9BF6 /* String+notNil.swift */,
+				7637E80A29C3A49C008B9BF6 /* UITableView+EmptyState.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +198,12 @@
 				1AA3C89B263AA2030041430A /* QuotesListViewController.swift in Sources */,
 				1AA3C8B2263AA8360041430A /* DataManager.swift in Sources */,
 				1AA3C8BA263AB2980041430A /* Quote.swift in Sources */,
+				7637E80929C36A0C008B9BF6 /* String+notNil.swift in Sources */,
+				7637E80629C35D21008B9BF6 /* QuoteTableViewCell.swift in Sources */,
 				1AA3C897263AA2030041430A /* AppDelegate.swift in Sources */,
 				1AC78CBF263C6686004D4F8F /* Market.swift in Sources */,
+				7637E80B29C3A49C008B9BF6 /* UITableView+EmptyState.swift in Sources */,
+				7637E80D29C3B338008B9BF6 /* VariationColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,13 +343,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36C3524M7W;
+				DEVELOPMENT_TEAM = 67Q3FFJ8YV;
 				INFOPLIST_FILE = "Technical-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.swissquote.Technical-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.swissquote.Ostap-Technical-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -330,13 +362,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36C3524M7W;
+				DEVELOPMENT_TEAM = 67Q3FFJ8YV;
 				INFOPLIST_FILE = "Technical-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.swissquote.Technical-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.swissquote.Ostap-Technical-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
