@@ -9,7 +9,7 @@ import UIKit
 
 class QuoteDetailsViewController: UIViewController {
     
-    private var quote:Quote? = nil
+    private let quote: Quote
     
     let symbolLabel = UILabel()
     let nameLabel = UILabel()
@@ -18,12 +18,9 @@ class QuoteDetailsViewController: UIViewController {
     let readableLastChangePercentLabel = UILabel()
     let favoriteButton = UIButton()
     
-    
-    
-    
-    init(quote:Quote) {
-        super.init(nibName: nil, bundle: nil)
+    init(quote: Quote) {
         self.quote = quote
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -36,11 +33,11 @@ class QuoteDetailsViewController: UIViewController {
         view.backgroundColor = .white
         addSubviews()
         setupAutolayout()
-        symbolLabel.text = quote?.symbol
-        nameLabel.text = quote?.name
-        lastLabel.text = quote?.last
-        currencyLabel.text = quote?.currency
-        readableLastChangePercentLabel.text = quote?.readableLastChangePercent
+        symbolLabel.text = quote.symbol
+        nameLabel.text = quote.name
+        lastLabel.text = quote.last
+        currencyLabel.text = quote.currency
+        readableLastChangePercentLabel.text = quote.readableLastChangePercent
         
     }
     
@@ -65,7 +62,13 @@ class QuoteDetailsViewController: UIViewController {
         readableLastChangePercentLabel.layer.borderColor = UIColor.black.cgColor
         readableLastChangePercentLabel.font = .systemFont(ofSize: 30)
         
-        favoriteButton.setTitle("Add to favorites", for: .normal)
+        if let existingData = UserDefaults.standard.array(forKey: "quoteNameArray") as? [String],
+            existingData.contains(quote.name.notNil) {
+            favoriteButton.setTitle("Remove from favorites", for: .normal)
+        } else {
+            favoriteButton.setTitle("Add to favorites", for: .normal)
+        }
+        
         favoriteButton.layer.cornerRadius = 6
         favoriteButton.layer.masksToBounds = true
         favoriteButton.layer.borderWidth = 3
@@ -121,14 +124,27 @@ class QuoteDetailsViewController: UIViewController {
                         
             favoriteButton.topAnchor.constraint(equalTo: readableLastChangePercentLabel.bottomAnchor, constant: 30),
             favoriteButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            favoriteButton.widthAnchor.constraint(equalToConstant: 150),
+            favoriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             favoriteButton.heightAnchor.constraint(equalToConstant: 44),
             
         ])
     }
     
     
-    @objc func didPressFavoriteButton(_ sender:UIButton!) {
-        // TODO
+    @objc func didPressFavoriteButton(_ sender: UIButton!) {
+        if var existingData = UserDefaults.standard.array(forKey: "quoteNameArray") as? [String] {
+            if !existingData.contains(quote.name.notNil) {
+                existingData.append(quote.name.notNil)
+            } else {
+                existingData.removeAll(where: { $0 == quote.name.notNil })
+            }
+            
+            UserDefaults.standard.set(existingData, forKey: "quoteNameArray")
+        } else {
+            let defaults = UserDefaults.standard
+            let nameList = [quote.name.notNil]
+            defaults.set(nameList, forKey: "quoteNameArray")
+        }
+        navigationController?.popViewController(animated: true)
     }
 }
